@@ -1,0 +1,8 @@
+tensorflow==2.21.0
+numpy==1.26.4
+matplotlib==3.10.7
+scikit-learn==1.7.2
+Pillow==11.1.0
+gradio==5.49.1
+python-dotenv==1.2.1
+pytest==8.4.2

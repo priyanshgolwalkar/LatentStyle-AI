@@ -1,0 +1,24 @@
+.venv/
+venv/
+env/
+.env
+.env.*
+!.env.example
+
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+*.py[cod]
+*$py.class
+*.log
+.cache/
+
+# Fashion-MNIST and other locally downloaded datasets.
+data/*
+!data/.gitkeep
+
+# Training checkpoints and caches are not needed unless explicitly restored.
+*.weights.h5
+checkpoints/
+
+# Keep inference model artifacts and presentation outputs in Git.

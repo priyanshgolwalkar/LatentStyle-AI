@@ -1,0 +1,5 @@
+# Optional CPU CLIP evaluation dependencies.
+# TensorFlow remains required by the main application.
+torch==2.0.1
+torchvision==0.15.2
+clip @ git+https://github.com/openai/CLIP.git@d05afc436d78f1c48dc0dbf8e5980a9d471f35f6
