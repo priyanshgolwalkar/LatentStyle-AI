@@ -45,3 +45,20 @@
 - NumPy compatibility: `1.26.4` for the installed Torch 2.0.1 CPU CLIP stack.
 - Optional CLIP dependency instructions: `requirements-clip.txt`.
 - Final local Gradio server verified with HTTP `200 OK` at port `7860`.
+
+## 2026-11-07 Render Deployment Fix
+
+- Added repository-root `.python-version` containing exactly `3.11`.
+- Updated Render configuration to request Python `3.11.11`.
+- Changed the Gradio fallback port to `10000` while preserving `PORT` environment support.
+- Render build issues caused by Python 3.14/TensorFlow wheel compatibility should be resolved by selecting Python 3.11.
+- TensorFlow `2.21.0`, NumPy `1.26.4`, Matplotlib `3.10.7`, scikit-learn `1.7.2`, Pillow `11.1.0`, Gradio `5.49.1`, and python-dotenv `1.2.1` remain unchanged unless Python 3.11 package resolution proves otherwise.
+
+## Deployment Fix Verification
+
+- `.python-version` verified as exact bytes `33 2E 31 31` (`3.11`, no trailing newline).
+- Automated tests: `18 passed in 10.96 seconds`.
+- Gradio application started with `PORT=10000` and returned `HTTP/1.1 200 OK`.
+- Launch configuration uses `server_name="0.0.0.0"` and `server_port=int(os.environ.get("PORT", 10000))`.
+- PyPI metadata for the pinned releases was inspected; compiled packages, including TensorFlow 2.21.0, have cp311-compatible release artifacts.
+- No TensorFlow, NumPy, Matplotlib, scikit-learn, Pillow, Gradio, python-dotenv, or pytest pin was changed during this deployment fix.

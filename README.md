@@ -55,7 +55,7 @@ The VAE is intended to be trained once. The application does not retrain or down
 python app/app.py
 ```
 
-Open the local Gradio URL printed by the application. The default server port is `7860`; set `PORT` to change it.
+Open the local Gradio URL printed by the application. The application defaults to port `10000`; set `PORT` to override it.
 
 ## Example Instructions
 
@@ -128,7 +128,9 @@ The included generator is a lightweight DCGAN-style 28x28 comparison baseline. A
 3. Ensure the required VAE and centroid artifact are included or restored before startup.
 4. Use only CPU-compatible settings and verify the deployed URL.
 
-TensorFlow and large model artifacts may exceed free-instance memory. A paid instance or a smaller trained artifact is required if startup fails due to RAM.
+The project pins the Render runtime to Python 3.11 through the repository-root `.python-version` file and `PYTHON_VERSION=3.11.11`. Python 3.11 is required because this avoids unsupported Python 3.14 environments for the pinned TensorFlow package. TensorFlow and the trained model artifact are loaded from the repository; the application does not retrain during startup.
+
+The application listens on `0.0.0.0` and reads `PORT` from the environment, defaulting to `10000` locally.
 
 ## Academic Report Support
 
@@ -136,7 +138,7 @@ The experiment log should record dataset size, epochs, latent dimension, loss cu
 
 ## Submission Placeholders
 
-- GitHub URL: `TBD`
+- GitHub URL: https://github.com/priyanshgolwalkar/LatentStyle-AI
 - Live application URL: `TBD`
 - Demo video URL: `TBD`
 
